@@ -117,7 +117,6 @@
 
 <script>
 import axios from "axios"
-import anime from "animejs";
 
 export default {
   props: {
@@ -178,21 +177,10 @@ export default {
       }
     },
     append(number) {
-      this.animateNumber(`n${number}`);
       if (this[`input${this.step}`].length < 10) this[`input${this.step}`] += number;
-    },
-    animateNumber(number) {
-      let tl = anime.timeline({
-        targets: `#${number}`,
-        duration: 250,
-        easing: "easeInOutCubic",
-      });
-      tl.add({backgroundColor: "#c1e3ff"});
-      tl.add({backgroundColor: "#f4faff"});
     },
     remove() {
       this[`input${this.step}`] = this[`input${this.step}`].substr(0, this[`input${this.step}`].length - 1);
-      this.animateNumber("remove");
     },
   },
 }
