@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN yarn
+RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 
@@ -18,4 +18,4 @@ RUN mkdir -p /etc/letsencrypt
 COPY . .
 
 EXPOSE 3035
-CMD [ "npm", "start" ]
+CMD [ "npm", "serve" ]
